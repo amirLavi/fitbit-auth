@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authorization Complete</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .code-box {
+            background-color: #f5f5f5;
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 16px;
+        }
+        .success {
+            color: #4CAF50;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="success">✓ Authorization Successful!</div>
+    
+    <h2>Your Authorization Code:</h2>
+    <div class="code-box" id="codeDisplay">Loading...</div>
+    
+    <p><strong>Please copy this code and send it to the research team.</strong></p>
+    <p>You can close this window after copying the code.</p>
+    
+    <script>
+        // Extract the authorization code from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        
+        if (code) {
+            document.getElementById('codeDisplay').textContent = code;
+        } else {
+            document.getElementById('codeDisplay').textContent = 'Error: No code found. Please try again.';
+            document.getElementById('codeDisplay').style.borderColor = '#f44336';
+        }
+    </script>
+</body>
+</html>
