@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fitbit Research Authorization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #00B0B9;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .button:hover {
+            background-color: #009BA3;
+        }
+        .warning {
+            background-color: #FFF3CD;
+            border: 1px solid #FFC107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Research Study: Fitbit Data Authorization</h1>
+    
+    <p>Welcome! Thank you for participating in our research study.</p>
+    
+    <p>To share your Fitbit data with our research team, please click the button below. You will be redirected to Fitbit's website where you can authorize data sharing.</p>
+    
+    <div class="warning">
+        <strong>What data will be shared:</strong>
+        <ul>
+            <li>Heart rate data</li>
+            <li>Activity data (steps, distance, calories)</li>
+            <li>Sleep data</li>
+            <li>Heart rate variability (HRV)</li>
+        </ul>
+        <strong>Your data will be kept confidential and used only for research purposes.</strong>
+    </div>
+    
+    <a href="#" id="authButton" class="button">Authorize Fitbit Data Access</a>
+    
+    <p><small>By clicking this button, you will be redirected to Fitbit to grant permission for data access.</small></p>
+    
+    <script>
+        // REPLACE THESE VALUES WITH YOUR OWN
+        const CLIENT_ID = 'YOUR_CLIENT_ID_HERE';
+        const REDIRECT_URI = 'https://YOUR-GITHUB-USERNAME.github.io/fitbit-auth/callback.html';
+        
+        // Scopes - what data you're requesting
+        const SCOPES = 'activity heartrate sleep profile';
+        
+        // Generate authorization URL
+        const authUrl = `https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${encodeURIComponent(SCOPES)}`;
+        
+        document.getElementById('authButton').href = authUrl;
+    </script>
+</body>
+</html>
