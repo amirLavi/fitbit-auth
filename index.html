@@ -42,10 +42,19 @@
     <div class="warning">
         <strong>What data will be shared:</strong>
         <ul>
-            <li>Heart rate data</li>
-            <li>Activity data (steps, distance, calories)</li>
-            <li>Sleep data</li>
+            <li>Profile information (name, age, gender, etc.)</li>
+            <li>Activity data (steps, distance, calories, active minutes)</li>
+            <li>Heart rate data (resting heart rate, heart rate zones)</li>
+            <li>Sleep data (sleep stages, sleep duration, sleep quality)</li>
+            <li>Breathing rate / Respiratory rate</li>
             <li>Heart rate variability (HRV)</li>
+            <li>Body composition (weight, BMI, body fat percentage)</li>
+            <li>Oxygen saturation (SpO2)</li>
+            <li>Temperature and skin temperature</li>
+            <li>Nutrition data (food logs, water intake)</li>
+            <li>Location data (if applicable)</li>
+            <li>Social data (friends, leaderboards)</li>
+            <li>Settings and device information</li>
         </ul>
         <strong>Your data will be kept confidential and used only for research purposes.</strong>
     </div>
@@ -59,8 +68,8 @@
         const CLIENT_ID = '23TMFB';
         const REDIRECT_URI = 'https://amirlavi.github.io/fitbit-auth/callback.html';
         
-        // Scopes - what data you're requesting
-        const SCOPES = 'activity heartrate sleep profile';
+        // All available Fitbit scopes - requesting comprehensive data access
+        const SCOPES = 'activity heartrate sleep profile respiratory_rate cardio_fitness oxygen_saturation temperature nutrition weight location social settings electrocardiogram';
         
         // Generate authorization URL
         const authUrl = `https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${encodeURIComponent(SCOPES)}`;
