@@ -65,15 +65,33 @@
     
     <script>
         // REPLACE THESE VALUES WITH YOUR OWN
-        const CLIENT_ID = '670763626904-335a9did7516cp70s1iedbu8b2vqsfhc.apps.googleusercontent.com';
+        const CLIENT_ID = '962629296911-17k6f1fboesjbpk8p8v67b0n8vlj8r2k.apps.googleusercontent.com';
         const REDIRECT_URI = 'https://amirlavi.github.io/fitbit-auth/callback.html';
-        
-        // All available Fitbit scopes - requesting comprehensive data access
-        const SCOPES = 'activity heartrate sleep profile respiratory_rate cardio_fitness oxygen_saturation temperature nutrition weight location social settings electrocardiogram';
-        
-        // Generate authorization URL
-        const authUrl = `https://accounts.google.com/o/oauth2/v2/auth&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${encodeURIComponent(SCOPES)}`;
-        
+
+        // Replace with actual Google scopes needed by the research flow
+        const SCOPES = [
+            'openid',
+            'email',
+            'profile'
+        ].join(' ');
+
+        // CSRF protection
+        const state = crypto.getRandomValues(new Uint32Array(1))[0].toString(36);
+        sessionStorage.setItem('oauth_state', state);
+
+        const params = new URLSearchParams({
+            client_id: CLIENT_ID,
+            redirect_uri: REDIRECT_URI,
+            response_type: 'code',
+            scope: SCOPES,
+            state,
+            access_type: 'offline',
+            prompt: 'consent',
+            include_granted_scopes: 'true'
+        });
+
+        const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
+
         document.getElementById('authButton').href = authUrl;
     </script>
 </body>
