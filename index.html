@@ -65,14 +65,14 @@
     
     <script>
         // REPLACE THESE VALUES WITH YOUR OWN
-        const CLIENT_ID = '23TM3Q';
+        const CLIENT_ID = '670763626904-335a9did7516cp70s1iedbu8b2vqsfhc.apps.googleusercontent.com';
         const REDIRECT_URI = 'https://amirlavi.github.io/fitbit-auth/callback.html';
         
         // All available Fitbit scopes - requesting comprehensive data access
         const SCOPES = 'activity heartrate sleep profile respiratory_rate cardio_fitness oxygen_saturation temperature nutrition weight location social settings electrocardiogram';
         
         // Generate authorization URL
-        const authUrl = `https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${encodeURIComponent(SCOPES)}`;
+        const authUrl = `https://accounts.google.com/o/oauth2/v2/auth&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${encodeURIComponent(SCOPES)}`;
         
         document.getElementById('authButton').href = authUrl;
     </script>
