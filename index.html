@@ -70,15 +70,18 @@
 
         // Replace with actual Google scopes needed by the research flow
         const SCOPES = [
-            'openid',
-            'email',
-            'profile',
-            '.sleep.readonly',
-            '.settings.readonly',
-            '.profile.readonly',
-            '.location.readonly',
-            '.health_metrics_and_measurements.readonly',
-            '.activity_and_fitness.readonly'
+          'openid',
+          'email',
+          'profile',
+          'https://www.googleapis.com/auth/fitness.activity.read',
+          'https://www.googleapis.com/auth/fitness.heart_rate.read',
+          'https://www.googleapis.com/auth/fitness.sleep.read',
+          'https://www.googleapis.com/auth/fitness.location.read',
+          'https://www.googleapis.com/auth/fitness.body.read',
+          'https://www.googleapis.com/auth/fitness.nutrition.read',
+          'https://www.googleapis.com/auth/fitness.oxygen_saturation.read',
+          'https://www.googleapis.com/auth/fitness.temperature.read',
+          'https://www.googleapis.com/auth/fitness.reproductive_health.read'
         ].join(' ');
 
         // CSRF protection
