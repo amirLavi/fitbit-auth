@@ -69,20 +69,17 @@
         const REDIRECT_URI = 'https://amirlavi.github.io/fitbit-auth/callback.html';
 
         // Replace with actual Google scopes needed by the research flow
-        const SCOPES = [
-          'openid',
-          'email',
-          'profile',
-          'https://www.googleapis.com/auth/fitness.activity.read',
-          'https://www.googleapis.com/auth/fitness.heart_rate.read',
-          'https://www.googleapis.com/auth/fitness.sleep.read',
-          'https://www.googleapis.com/auth/fitness.location.read',
-          'https://www.googleapis.com/auth/fitness.body.read',
-          'https://www.googleapis.com/auth/fitness.nutrition.read',
-          'https://www.googleapis.com/auth/fitness.oxygen_saturation.read',
-          'https://www.googleapis.com/auth/fitness.temperature.read',
-          'https://www.googleapis.com/auth/fitness.reproductive_health.read'
-        ].join(' ');
+          const SCOPES = [
+            'openid',
+            'https://www.googleapis.com/auth/userinfo.email',
+            'https://www.googleapis.com/auth/userinfo.profile',
+            'https://www.googleapis.com/auth/fitness.activity.read',
+            'https://www.googleapis.com/auth/fitness.heart_rate.read',
+            'https://www.googleapis.com/auth/fitness.sleep.read',
+            'https://www.googleapis.com/auth/fitness.location.read',
+            'https://www.googleapis.com/auth/fitness.body.read',
+            'https://www.googleapis.com/auth/fitness.nutrition.read'
+          ].join(' ');
 
         // CSRF protection
         const state = crypto.getRandomValues(new Uint32Array(1))[0].toString(36);
